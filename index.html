@@ -1,63 +1,34 @@
 <!DOCTYPE html>
-    <html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Random Password Generator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Random Password Generator</a>
+    </nav>
+    <div class="container">
+        <div class="row">
 
-        <head>
-                <meta charset="utf-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-                 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-                 <link rel="stylesheet" href="assets/style.css">
-        </head>
-
-            <body>
-                  <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-secondary">
-                            <a class="navbar-brand bg-info text-light p-2" href="#">Christopher Wood</a>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                              <span class="navbar-toggler-icon"></span>
-                            </button>
-
-                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                              <ul class="navbar-nav ml-auto">
-
-                                <li><a class="nav-item nav-link active border-right border-secondary" href="index.html">Home<span class="sr-only">(current)</span></a></li>
-                                <li><a class="nav-item nav-link border-right border-secondary" href="portfolio.html">Portfolio</a></li>
-                                <li><a class="nav-item nav-link" href="contact.html">Contact</a></li>
-                                </ul>
-                                
-                              </div>
-                            </div>
-                    </nav>
-           
-            <div class="container bg-light border border-secondary mt-3">
-
-              <div class="container text-info bg-light mt-3 border-bottom border-dark">
-                <h1>About Me</h1>
-              </div>
-
-              <div class="container text-dark bg-light mt-3">
-
-                <img src="assets/Testprofilepic.jpg" style="width:200px;height:150px; float: left; padding-right: 15px;" class="img-fluid" alt="Responsive image">
-                  <p>This is the text thats going in here. Yea tons of text. You won't even believe it. Anceint text, modern text, you name it, we got it here. Here's some right now, it reads,"How the heck are ya, Bob? Well, aren't you a sight for sore eyes?" I don't know who comes up with this stuff but it's bloody brilliant. Let's keep going. We don't have enough text to fill the container. I know you have it inside you to fill the space. You can do it. You're almost there. There's no turning back now. It has to be done. Good job! You made it!</p>
-                  
-                  <p>A specific analogy that Baudrillard uses is a fable derived from "On Exactitude in Science" by Jorge Luis Borges. In it, a great Empire created a map that was so detailed it was as large as the Empire itself. The actual map was expanded and destroyed as the Empire itself conquered or lost territory. When the Empire crumbled, all that was left was the map. In Baudrillard's rendition, it is conversely the map that people live in, the simulation of reality where the people of Empire spend their lives ensuring their place in the representation is properly circumscribed and detailed by the map-makers; conversely, it is reality that is crumbling away from disuse.</p>
-      
-            
+            <div class ="col-lg-8 col-sm-12">
+                <div class="content">
+                    <h4>Random Password Generator</h4>
+                    <br />
+                    <input type="text" id="display">
+                    <br />
+                    <button onclick="">Generate</button>
+                    <button onclick="">Copy to Clipboard</button>
                 </div>
-              </div>
+        
+        </div>
+    </div>
 
-
-
-          <footer class="page-footer font-small blue fixed-bottom bg-secondary">
-   
-          <div class="footer-copyright text-center py-3">© 2018 Copyright
-      
-          </div>
-          </footer>
-
-           </body>
-
-
-
-
+</body>
 </html>
