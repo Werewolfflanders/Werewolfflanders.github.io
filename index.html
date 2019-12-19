@@ -19,16 +19,18 @@
 
             <div class ="col-lg-8 col-sm-12 mx-auto">
                 <div class="content">
-                    <h4>Random Password Generator</h4>
+                    <h4>Click the button to get your password!</h4>
                     <br />
-                    <input type="text" id="display">
-                    <br />
-                    <input type ="range" min="0" max="50" name="slider" id="slider">
-                    <br />
-                    <button onclick="generate()">Generate</button>
-                    <button onclick="copyPassword()">Copy to Clipboard</button>
-                </div>
-        
+                    <form name="pgenerate">
+                        <input type="text"  name="output">
+                        <input type="button" value="Generate Password" onClick="populateform(this.form.thelength.value)"><br />
+                        
+                        <b>Password Length:</b> <input type="text" name="thelength" size=3 value="10">
+                        <br>
+
+                        <button onclick="copyPassword()">Copy to Clipboard</button>
+                        </form>
+                        
         </div>
     </div>
     <script src="script.js"></script>

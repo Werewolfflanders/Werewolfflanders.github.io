@@ -1,28 +1,25 @@
 //generate random password
-function generate(){
 
-    //set password length/complexity
-    var complexity = document.getElementById("slider").value;
+var passKeys="abcdefghijklmnopqrstuvwxyz123456789"
+var result=''
 
-    //possible password values
-    var values = "ABCDEFGHIJKLMNOPQURSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()_+";
-
-    var password="";
-
-    //create for loop to choose password characters
-    for(var i = 0; i <= complexity; i++){
-        password = password + values.charAt(Math.floor(Math.random() * Math.floor(values.length - 1)));
-    }
-    //add password to textbox/display area
-    document.getElementById("display").value = password;
-
+function generatePass(plength){
+result=''
+for (i = 0; i < plength; i++)
+result += passKeys.charAt(Math.floor(Math.random()*passKeys.length))
+return result
 }
-//funtion copy password to clipboard
+
+function populateform(enterlength){
+document.pgenerate.output.value=generatePass(enterlength)
+}
+
 function copyPassword(){
 
-    document.getElementById("display").select;
+    document.getElementById("output");
 
-    document.execCommand("Copy");
+
+    document.execCommand("copy");
 
     alert("Password copied to clipboard");
 }
