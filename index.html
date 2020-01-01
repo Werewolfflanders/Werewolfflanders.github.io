@@ -4,35 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Random Password Generator</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
- 
+    <link href="/Assets/style.css" rel="stylesheet">
+
+    <title>Javascript Quiz</title>
 </head>
+
 <body>
-    
-    <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Random Password Generator</a>
-    </nav>
-    <div class="container">
-        <div class="row">
-
-            <div class ="col-lg-8 col-sm-12 mx-auto">
-                <div class="content">
-                    <h4>Click the button to get your password!</h4>
-                    <br />
-                    <form name="pgenerate">
-                        <input type="text"  name="output">
-                        <input type="button" value="Generate Password" onClick="populateform(this.form.thelength.value)"><br />
-                        
-                        <b>Password Length:</b> <input type="text" name="thelength" size=3 value="10">
-                        <br>
-
-                        <button onclick="copyPassword()">Copy to Clipboard</button>
-                        </form>
-                        
+<div class = "container mt-5">
+    <div id="question-container" class="hide">
+        <div id="question">Question</div>
+        <div id="answer-buttons" class="btn-grid mt-3">
+            <button class="btn">Answer 1</button>
+            <button class="btn">Answer 2</button>
+            <button class="btn">Answer 3</button>
+            <button class="btn">Answer 4</button>
         </div>
+    </div> 
+    <div class= "controls">
+        <button id ="start-btn" class="start-btn btn">Start</button>
+        <button id="next-btn" class="next-btn btn hide">Next</button>
     </div>
-    <script src="script.js"></script>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
