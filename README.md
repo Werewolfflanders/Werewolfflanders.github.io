@@ -1,58 +1,88 @@
-# Unit 03 JavaScript Homework: Password Generator
+# Unit 04 Web APIs Homework: Code Quiz
 
-## Description
+As you proceed in your career as a web developer, you will probably be asked to complete a coding assessment. These assessments are typically a combination of multiple-choice questions and interactive challenges. In this homework assignment, your challenge is to build a code quiz with multiple-choice questions.
 
-Create an application that generates a random password based on user-selected criteria. This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code.
 
-The user will be prompted to choose from the following password criteria:
+## Instructions
 
-* Length (must be between 8 and 128 characters)
+From scratch, build a timer-based quiz application that stores high scores client-side. Following the [common templates for user stories](https://en.wikipedia.org/wiki/User_story#Common_templates), we can frame this challenge as follows:
 
-* Character type:
+```
+As a coding bootcamp student
+I want to take a timed quiz on JavaScript fundamentals that stores high scores
+so that I can gauge my progress compared to my peers
+```
 
-  * Special characters ([see examples](https://www.owasp.org/index.php/Password_special_characters))
+How do you deliver this? Here are some guidelines:
 
-  * Numeric characters
+* Play proceeds as follows:
 
-  * Lowercase characters
+  * The user arrives at the landing page and is presented with a call-to-action to "Start Quiz." Also note the navigation option to "View Highscores" and the "Time" value set at 0.
 
-  * Uppercase characters
+  * Clicking the "Start Quiz" button presents the user with a series of questions. The timer is initialized with a value and immediately begins countdown.
 
-The application should validate user input and ensure that at least one character type is selected.
+  * Score is calculated by time remaining. Answering quickly and correctly results in a higher score. Answering incorrectly results in a time penalty (for example, 15 seconds are subtracted from time remaining).
 
-Once all prompts are answered, the user will be presented with a password matching the answered prompts. Displaying the generated password in an alert is acceptable, but attempt to write the password to the page instead.
+  * When time runs out and/or all questions are answered, the user is presented with their final score and asked to enter their initials. Their final score and initials are then stored in `localStorage`.
 
-As a bonus, the user should also have the option to click a button to copy the password to their clipboard.
+* Your application should also be responsive, ensuring that it adapts to multiple screen sizes.
 
-Your application should have a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
+* Refer to the animated GIF below for a demonstration of the application functionality.
 
-Your application should be deployed to GitHub Pages.
+![code quiz](./Assets/04-Web-APIs-homework-demo.gif)
 
-Your application's GitHub repository should contain a README.md file explaining the purpose and functionality of the application. The README.md file should include a screenshot of the completed application as well as a link to the deployed GitHub Pages URL.
 
-![password generator demo](./Assets/03-JavaScript-homework-demo.png)
+### Hints
 
-## User Story
+* Store your questions as an array of objects in a separate file, `questions.js`, that follows this format:
 
-AS AN employee with access to sensitive data
+```js
+var questions = [
+  {
+    title: "Commonly used data types DO NOT include:",
+    choices: ["strings", "booleans", "alerts", "numbers"],
+    answer: "alerts"
+  },
+  {
+    title: "The condition in an if / else statement is enclosed within ____.",
+    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
+    answer: "parentheses"
+  },
+  ///etc.
+];
+```
 
-I WANT to randomly generate a password that meets certain criteria
+* The length of the array in `questions.js` determines the length of play. Fifteen seconds per question is a good estimate, so 5 questions will result in a length of play of 75 seconds.
 
-SO THAT I can create a strong password that provides greater security
 
-## Business Context
+## Minimum Requirements
 
-For companies that handle large amounts of sensitive data, weak passwords can pose a real security threat. An application that can generate strong passwords quickly and effortlessly saves employees time and ensures secure access to data.
+* Functional, deployed application.
 
-## Acceptance Criteria
+* GitHub repository with README describing project.
 
-GIVEN that a user needs a new, secure password
+* The first view of the application displays a button that starts the quiz.
 
-WHEN prompted for password criteria
+* Clicking the start button displays a series of questions.
 
-THEN a password is generated
+* Once the quiz begins, a timer starts.
 
-- - -
+* If a question is answered incorrectly, additional time is subtracted from the timer.
+
+* The timer stops when all questions have been answered or the timer reaches 0.
+
+* After the game ends, the user can save their initials and score to a highscores view using local storage.
+
+## Bonus
+
+* Add audio files to alert the user of correct or incorrect answers. Be sure to include the appropriate license.
+
+* Customize the application theme.
+
+* Create multiple quizzes and an option for users to choose between them.
+
+* Add the application to your portfolio.
+
 
 ## Commit Early and Often
 
@@ -74,6 +104,7 @@ Follow these guidelines for committing:
 
 We would like you to have well over 200 commits by graduation, so commit early and often!
 
+
 ## Submission on BCS
 
 You are required to submit the following:
@@ -81,6 +112,7 @@ You are required to submit the following:
 * The URL of the deployed application
 
 * The URL of the GitHub repository
+
 
 - - -
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
