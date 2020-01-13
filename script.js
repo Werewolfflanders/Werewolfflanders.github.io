@@ -1,9 +1,11 @@
 // variables for buttons, score, and questions
 var startButton = document.getElementById('start-btn');
-
+var displayText =document.getElementById('displaytext');
 var questionsContainerElement = document.getElementById('question-container');
 var navBarContainerElement = document.getElementById('nav-container');
+var highScoreElement = document.getElementById('Highscore');
 var questionIndex = 0;
+var sec = 60;
 var questions = [
     {
       title: "Commonly used data types DO NOT include:",
@@ -51,25 +53,39 @@ function startGame() {
     questionsContainerElement.classList.remove('hide')
     navBarContainerElement.classList.remove('hide')
 
+    
+      
+      function startTimer(){
+          console.log('timer suppose to go')
+          var timer = setInterval(function(){
+              sec--;
+              document.getElementById("seconds").innerHTML='00:'+sec;
+              if (sec < 0) {
+                  clearInterval(timer);
+                  alert("Time is up!")
+                  questionsContainerElement.classList.add('hide')
+                  navBarContainerElement.classList.add('hide')
+                  displayText.classList.add('hide')
+                  highScoreElement.classList.remove('hide')
+                  highScoreElement.textContent = "You're score is " + score;
 
+              }
+          }, 1000);
+      }
+      document.getElementById('displaytext').addEventListener('click', function() {
+          sec -= 15;
+          document.getElementById("seconds").innerHTML='00:'+sec;
+      });
+      startTimer();
+    }
   // function for timer 
-    function MyTimer(callback, val) {
-      val = val || 75;
-      var timer=setInterval(function() {
-          callback(val);
-          if(val-- <= 0) {
-              clearInterval(timer);
-          }
-      }, 1000);
-  }
-  new MyTimer(function(val) {
-      var timerMsg = "00:" + (val >= 10 ? val : "0" + val);
-      document.getElementById("seconds").textContent = timerMsg;
-  });
   
-}
+  
+
 populateQuestions()
 function populateQuestions() {
+  let choicesDiv = document.querySelector("#choices");
+  choicesDiv.innerHTML = "";
   let currentQuestion = questions[questionIndex]
   var titleEl = document.getElementById("question");
   titleEl.textContent = currentQuestion.title
@@ -108,13 +124,27 @@ function userChoice(choice){
     if (answer == currentQuestion.answer){
         score++;
         console.log("correct");
+        var correctBanner = document.getElementById("displaytext");
+        correctBanner.textContent = "Correct!";
+
+        questionIndex++;
+        populateQuestions();
     }
     else {
       console.log("wrong");
+      document.getElementById('choices').addEventListener('click', function() {
+        sec -= 15;
+        document.getElementById("seconds").innerHTML='00:'+sec;
+    });
+      var wrongBanner = document.getElementById("displaytext");
+      wrongBanner.textContent = "Wrong!";
+     
+      questionIndex++;
+      populateQuestions();
     }
     
     
-    questionIndex++;
-    populateQuestions();
+    // questionIndex++;
+    // populateQuestions();
     
     }
