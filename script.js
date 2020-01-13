@@ -5,7 +5,7 @@ var questionsContainerElement = document.getElementById('question-container');
 var navBarContainerElement = document.getElementById('nav-container');
 var highScoreElement = document.getElementById('Highscore');
 var questionIndex = 0;
-var sec = 60;
+var sec = 75;
 var questions = [
     {
       title: "Commonly used data types DO NOT include:",
@@ -54,7 +54,7 @@ function startGame() {
     navBarContainerElement.classList.remove('hide')
 
     
-      
+      // function for timer 
       function startTimer(){
           console.log('timer suppose to go')
           var timer = setInterval(function(){
@@ -78,7 +78,7 @@ function startGame() {
       });
       startTimer();
     }
-  // function for timer 
+  
   
   
 
@@ -116,7 +116,17 @@ function populateQuestions() {
   
 }
 
-let score = 0;
+var score = 0;
+var highscore = localStorage.getItem("highscore");
+
+if(highscore !== null){
+    if (score > highscore) {
+        localStorage.setItem("highscore", score);      
+    }
+}
+else{
+    localStorage.setItem("highscore", score);
+}
 function userChoice(choice){
     console.log(choice.srcElement.innerText)
     let answer = choice.srcElement.innerText
@@ -135,9 +145,11 @@ function userChoice(choice){
       document.getElementById('choices').addEventListener('click', function() {
         sec -= 15;
         document.getElementById("seconds").innerHTML='00:'+sec;
+        score--;
     });
       var wrongBanner = document.getElementById("displaytext");
       wrongBanner.textContent = "Wrong!";
+      
      
       questionIndex++;
       populateQuestions();
